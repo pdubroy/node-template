@@ -17,7 +17,7 @@
     "watchify": "^1.0.1"
   },
   "scripts": {
-    "init-repo": "mkdir dist lib third_party",
+    "init-repo": "mkdir bin dist lib third_party; git remote rm origin",
     "build": "browserify -s NAME -o dist/NAME-bundle.js main.js",
     "watch": "watchify -s NAME -o dist/NAME-bundle.js main.js",
     "test": "tape test/*.js",
