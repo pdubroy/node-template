@@ -16,7 +16,7 @@
     "watchify": "^1.0.1"
   },
   "scripts": {
-    "init-repo": "mkdir bin dist lib third_party; git remote rm origin",
+    "init-repo": "mkdir bin dist lib third_party; git remote rm origin; git reset --soft ceac6c && git commit --amend -m 'Create project.'",
     "build": "browserify -s $(pwd) -o dist/$(pwd)-bundle.js main.js",
     "watch": "watchify -s $(pwd) -o dist/$(pwd)-bundle.js main.js",
     "test": "tape test/*.js",
