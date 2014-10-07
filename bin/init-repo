@@ -8,7 +8,8 @@ mkdir dist lib third_party
 sed -i '' "s/PACKAGE_NAME/${PACKAGE_NAME}/g" package.json
 npm init
 git mv test/test-NAME.js test/test-${PACKAGE_NAME}.js
+npm install
+
 git rm bin/init-repo
 git remote rm origin
 git reset --soft ceac6c && git add . && git commit --amend -m 'Initial commit.'
-npm install
