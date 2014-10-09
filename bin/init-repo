@@ -12,4 +12,5 @@ git mv test/test-NAME.js test/test-${PACKAGE_NAME}.js
 npm install
 
 git rm bin/init-repo
-git reset --soft ceac6c && git add . && git commit --amend -m 'Initial commit.'
+git mv bin/pre-commit .git/hooks/pre-commit
+git reset --soft ceac6c && git add . && git commit --no-verify --amend -m 'Initial commit.'
