@@ -10,7 +10,9 @@
   "dependencies": {},
   "devDependencies": {
     "browserify": "^5.9.1",
+    "dirwatch": "^1.1.0",
     "jshint": "^2.5.2",
+    "tap-spec": "^1.0.1",
     "tape": "^2.13.4",
     "watchify": "^1.0.1"
   },
@@ -18,6 +20,7 @@
     "build": "browserify -s PACKAGE_NAME -o dist/PACKAGE_NAME-bundle.js index.js",
     "watch": "watchify -s PACKAGE_NAME -o dist/PACKAGE_NAME-bundle.js index.js",
     "test": "tape test/*.js",
+    "test-continuous": "dirwatch *.js test/*.js -c 'which tput && tput clear; date; tape test/*.js' | tap-spec",
     "prepublish": "npm run build && npm run test && npm run lint",
     "lint": "jshint index.js lib test"
   }
