@@ -18,9 +18,9 @@
   },
   "scripts": {
     "build": "browserify -d -s PACKAGE_NAME -o dist/PACKAGE_NAME-bundle.js index.js",
-    "watch": "watchify -d -s PACKAGE_NAME -o dist/PACKAGE_NAME-bundle.js index.js",
+    "watch": "watchify -v -d -s PACKAGE_NAME -o dist/PACKAGE_NAME-bundle.js index.js",
     "test": "tape test/*.js | tap-spec",
-    "test-continuous": "dirwatch *.js test/*.js -c 'which tput && tput clear; date; tape test/*.js' | tap-spec",
+    "test-continuous": "npm test; dirwatch *.js test/*.js -c 'which tput && tput clear; date; tape test/*.js' | tap-spec",
     "prepublish": "npm run build && npm run test && npm run lint",
     "lint": "jshint index.js lib test"
   }
