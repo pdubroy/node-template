@@ -2,12 +2,11 @@
 
 set -e # Fail on any error
 
-PACKAGE_NAME=$(basename $(pwd))
-
 mkdir dist lib third_party
-sed -i '' "s/PACKAGE_NAME/${PACKAGE_NAME}/g" package.json
 git remote rm origin
 npm init
+PACKAGE_NAME=$(node -p "require('$(npm prefix)/package.json').name")
+sed -i '' "s/PACKAGE_NAME/${PACKAGE_NAME}/g" package.json
 git mv test/test-NAME.js test/test-${PACKAGE_NAME}.js
 npm install
 
