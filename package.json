@@ -1,11 +1,7 @@
 {
   "name": "PACKAGE_NAME",
   "version": "0.1.0",
-  "author": {
-    "name": "Patrick Dubroy",
-    "email": "pdubroy@gmail.com",
-    "url": "http://dubroy.com"
-  },
+  "author": "Patrick Dubroy <pdubroy@gmail.com> (http://dubroy.com)",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
@@ -26,5 +22,9 @@
   },
   "browserify": {
     "opts": "-d -s PACKAGE_NAME -o dist/PACKAGE_NAME.js"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   }
 }
