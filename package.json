@@ -6,7 +6,8 @@
   "dependencies": {},
   "devDependencies": {
     "browserify": "^5.9.1",
-    "eslint": "^0.17.1",
+    "eslint": "^2.8.0",
+    "eslint-config-google": "^0.5.0",
     "tap-spec": "^1.0.1",
     "tape": "^2.13.4",
     "watchify": "^1.0.1",
