@@ -8,6 +8,7 @@
     "browserify": "^14.4.0",
     "faucet": "0.0.1",
     "nodemon": "^1.12.1",
+    "pre-commit": "^1.2.2",
     "semistandard": "^11.0.0",
     "tape": "^4.8.0",
     "watchify": "^3.9.0"
@@ -23,6 +24,7 @@
   "browserify": {
     "opts": "-d -s PACKAGE_NAME -o dist/PACKAGE_NAME.js"
   },
+  "pre-commit": ["test", "lint"],
   "main": "index.js",
   "directories": {
     "test": "test"
