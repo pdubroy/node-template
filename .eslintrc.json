@@ -2,8 +2,16 @@
   "parserOptions": {
     "ecmaVersion": 6
   },
-  "extends": "prettier",
+  "plugins": ["prettier"],
+  "extends": ["google", "prettier"],
   "rules": {
+    "prettier/prettier": "error",
+    "require-jsdoc": "off",
+
+    // A few cases where we want to be slightly stricter than the Google style.
+    // This should only be done for things that can be automatically fixed.
     "curly": ["error", "all"],
+    "prefer-arrow-callback": "error",
+    "object-shorthand": "error"
   }
 }

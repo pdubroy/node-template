@@ -6,10 +6,16 @@
   "dependencies": {},
   "devDependencies": {
     "browserify": "^14.4.0",
-    "faucet": "0.0.1",
+    "chalk": "^2.3.0",
+    "eslint": "^4.12.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "faucet": "^0.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^5.0.0",
     "nodemon": "^1.12.1",
-    "pre-commit": "^1.2.2",
-    "semistandard": "^11.0.0",
+    "prettier": "^1.8.2",
     "tape": "^4.8.0",
     "watchify": "^3.9.0"
   },
@@ -18,15 +24,29 @@
     "watch": "watchify -v . $npm_package_browserify_opts",
     "test": "tape test/*.js | faucet",
     "test-watch": "nodemon --exec 'npm test'",
+    "precommit": "lint-staged && npm test",
     "prepublish": "npm run build && npm run test && npm run lint",
-    "lint": "semistandard index.js lib test"
+    "lint-files": "node scripts/lint.js eslint $npm_package_lint_options",
+    "lint": "node scripts/lint.js eslint $npm_package_lint_options $npm_package_lint_sources",
+    "format": "node scripts/lint.js eslint --fix $npm_package_lint_options $npm_package_lint_sources"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   },
   "browserify": {
     "opts": "-d -s PACKAGE_NAME -o dist/PACKAGE_NAME.js"
   },
-  "pre-commit": ["test", "lint"],
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "lint": {
+    "options": "-c .eslintrc.json",
+    "sources": "**/*.{js,jsx,mjs}"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,mjs}": "lint-files"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "trailingComma": "es5",
+    "singleQuote": true
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
-var test = require('tape');
+const test = require('tape');
 
-test('example', function(t) {
+test('example', (t) => {
   t.end();
 });
