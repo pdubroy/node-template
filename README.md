@@ -5,7 +5,7 @@ used:
 
     git clone node-template <project_name>
     cd <project_name>
-    bin/init-repo
+    scripts/init-repo
 
 This will set up a basic project with browserify, [tape](https://www.npmjs.com/package/tape)-based
 tests, and a few helpful scripts:

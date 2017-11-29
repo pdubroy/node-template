@@ -11,6 +11,5 @@ sed -i '' "s/PACKAGE_NAME/${PACKAGE_NAME}/g" package.json
 git mv test/test-NAME.js test/test-${PACKAGE_NAME}.js
 npm install
 
-git rm bin/init-repo
+git rm scripts/init-repo
 git reset --soft ceac6c && git add . && git commit --no-verify --amend -m 'Initial commit.'
-cp bin/pre-commit .git/hooks/pre-commit
