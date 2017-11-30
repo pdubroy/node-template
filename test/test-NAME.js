@@ -2,6 +2,6 @@
 
 const test = require('tape');
 
-test('example', (t) => {
+test('example', t => {
   t.end();
 });
