@@ -13,5 +13,11 @@
     "curly": ["error", "all"],
     "prefer-arrow-callback": "error",
     "object-shorthand": "error"
-  }
+  },
+  "overrides": [{
+    "files": ["**/*.mjs", "rollup.config.js"],
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  }]
 }

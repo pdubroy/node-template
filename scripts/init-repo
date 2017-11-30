@@ -8,9 +8,9 @@ echo "# $PACKAGE_NAME" > README.md
 npm init
 PACKAGE_NAME=$(node -p "require('$(npm prefix)/package.json').name")
 YEAR=$(date +%Y)
-sed -i '' "s/PACKAGE_NAME/${PACKAGE_NAME}/g" package.json
+sed -i '' "s/PACKAGE_NAME/${PACKAGE_NAME}/g" package.json rollup.config.js
 sed -i '' "s/YEAR/${YEAR}/g" LICENSE index.js
-git mv test/test-NAME.js test/test-${PACKAGE_NAME}.js
+git mv test/test-NAME.mjs test/test-${PACKAGE_NAME}.mjs
 npm install
 
 git rm scripts/init-repo

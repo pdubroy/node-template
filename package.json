@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^14.4.0",
+    "@std/esm": "^0.17.3",
     "chalk": "^2.3.0",
     "eslint": "^4.12.0",
     "eslint-config-google": "^0.9.1",
@@ -16,14 +16,14 @@
     "lint-staged": "^5.0.0",
     "nodemon": "^1.12.1",
     "prettier": "^1.8.2",
-    "tape": "^4.8.0",
-    "watchify": "^3.9.0"
+    "rollup": "^0.52.0",
+    "tape": "^4.8.0"
   },
   "scripts": {
-    "build": "browserify . $npm_package_browserify_opts",
-    "watch": "watchify -v . $npm_package_browserify_opts",
-    "test": "tape test/*.js | faucet",
-    "test-watch": "nodemon --exec 'npm test'",
+    "build": "rollup -c",
+    "watch": "rollup -w",
+    "test": "tape -r @std/esm test/*.mjs | faucet",
+    "test-watch": "nodemon -e js,json,mjs --exec 'npm test'",
     "precommit": "lint-staged && npm test",
     "prepublish": "npm run build && npm run test && npm run lint",
     "lint-files": "node scripts/lint.js eslint $npm_package_lint_options",
@@ -31,6 +31,7 @@
     "format": "node scripts/lint.js eslint --fix $npm_package_lint_options $npm_package_lint_sources"
   },
   "main": "index.js",
+  "module": "src/main.mjs",
   "directories": {
     "test": "test"
   },
